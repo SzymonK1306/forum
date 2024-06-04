@@ -5,30 +5,30 @@
     <div class="container">
         <!--Navigation-->
         <div class="navigate">
-            <span><a href="{% url 'home' %}">MyForum - Forums</a> >> <a href="{{post.categories.all.0.get_url}}">{{post.categories.all.0}}</a> >> <a href="{{post.get_url}}">{{post.title}}</a></span>
+            <span><a href="{% url 'home' %}">Powrót do strony głównej</a> >> <a href="{{post.categories.all.0.get_url}}">{{post.categories.all.0}}</a> >> <a href="{{post.get_url}}">{{post.title}}</a></span>
         </div>
 
         <!--Topic Section-->
         <div class="topic-container">
             <!--Original thread-->
             <div class="head">
-                <div class="authors">Author</div>
-                <div class="content">Topic: {{post.title}} (Read {% get_hit_count for post %} Times)</div>
+                <div class="authors">Autor</div>
+                <div class="content">Temat: {{post.title}} (Liczba wyświetleń: {% get_hit_count for post %})</div>
             </div>
 
             <div class="body">
                 <div class="authors">
                     <div class="username"><a href="">{{post.user.fullname|title}}</a></div>
-                    <div>Role</div>
+                    <div>Rola</div>
                     <img src="{{post.user.profile_pic.url}}" alt="">
-                    <div>Posts: <u>{{post.user.num_posts}}</u></div>
-                    <div>Points: <u>{{post.user.points}}</u></div>
+                    <div>Posty: <u>{{post.user.num_posts}}</u></div>
+                    <div>Punkty: <u>{{post.user.points}}</u></div>
                 </div>
                 <div class="content">
                     {{post.content|safe}}
                     <br>
                     <div class="comment">
-                        <button onclick="showComment()">Comment</button>
+                        <button onclick="showComment()">Skomentuj</button>
                     </div>
                 </div>
             </div>
@@ -43,12 +43,12 @@
         <form action="." method="post">
             {% csrf_token %}
             <div class="comment-area hide" id="comment-area">
-                <textarea name="comment" id="" placeholder="comment here ... "></textarea>
-                <input type="submit" value="submit" name="comment-form">
+                <textarea name="comment" id="" placeholder="Skomentuj "></textarea>
+                <input type="submit" value="Zatwierdź" name="comment-form">
             </div>
         </form>
         {% else %}
-<div style="background-color:#fff;color:#000;font-weight:bolder;padding:20px;width:100%;"> You need to <a href="{% url 'signin' %}"><b>login</b></a> to comment or reply.! </div>        
+<div style="background-color:#fff;color:#000;font-weight:bolder;padding:20px;width:100%;"> <a href="{% url 'signin' %}"><b>Zaloguj się</b></a> aby skomentować lub odpowiedzieć </div>
 
         {% endif %}
 
@@ -61,17 +61,17 @@
             <div class="body">
                 <div class="authors">
                     <div class="username"><a href="">{{comment.user.fullname|title}}</a></div>
-                    <div>Role</div>
+                    <div>Rola</div>
                     <img src="{{comment.user.profile_pic.url}}" alt="">
-                    <div>Posts: <u>{{comment.user.num_posts}}</u></div>
-                    <div>Points: <u>{{comment.user.points}}</u></div>
+                    <div>Posty: <u>{{comment.user.num_posts}}</u></div>
+                    <div>Punkty: <u>{{comment.user.points}}</u></div>
                 </div>
                 <div class="content">
                     {{comment.content}}
                     <br>
                     {% if request.user.is_authenticted %}
                     <div class="comment">
-                        <button onclick="showReplies('comment{{comment.id}}')">Reply</button>
+                        <button onclick="showReplies('comment{{comment.id}}')">Odpowiedz</button>
                     </div>
                     {% endif %}
                 </div>
@@ -93,10 +93,10 @@
             <div class="body">
                 <div class="authors">
                     <div class="username"><a href="">{{reply.user.fullname|title}}</a></div>
-                    <div>Role</div>
+                    <div>Rola</div>
                     <img src="{{reply.user.profile_pic.url}}" alt="">
-                    <div>Posts: <u>{{reply.user.num_posts}}</u></div>
-                    <div>Points: <u>{{reply.user.points}}</u></div>
+                    <div>Posty: <u>{{reply.user.num_posts}}</u></div>
+                    <div>Punkty: <u>{{reply.user.points}}</u></div>
                 </div>
                 <div class="content">
                     {{reply.content}}

@@ -24,7 +24,7 @@ def home(request):
         "num_users":num_users,
         "num_categories":num_categories,
         "last_post":last_post,
-        "title": "OZONE forum app"
+        "title": "Gwiezdne wojny - forum"
     }
     return render(request, "forums.html", context)
 
@@ -48,7 +48,7 @@ def detail(request, slug):
 
     context = {
         "post":post,
-        "title": "OZONE: "+post.title,
+        "title": "Gwiezdne wojny: "+post.title,
     }
     update_views(request, post)
 
@@ -56,7 +56,7 @@ def detail(request, slug):
 
 def posts(request, slug):
     category = get_object_or_404(Category, slug=slug)
-    posts = Post.objects.filter(approved=True, categories=category)
+    posts = Post.objects.filter(categories=category)
     paginator = Paginator(posts, 5)
     page = request.GET.get("page")
     try:
@@ -69,7 +69,7 @@ def posts(request, slug):
     context = {
         "posts":posts,
         "forum": category,
-        "title": "OZONE: Posts"
+        "title": "Gwiezdne wojny: posty"
     }
 
     return render(request, "posts.html", context)
@@ -90,7 +90,7 @@ def create_post(request):
             return redirect("home")
     context.update({
         "form": form,
-        "title": "OZONE: Create New Post"
+        "title": "Gwiezdne wojny: stworz nowy post"
     })
     return render(request, "create_post.html", context)
 
@@ -98,7 +98,7 @@ def latest_posts(request):
     posts = Post.objects.all().filter(approved=True)[:10]
     context = {
         "posts":posts,
-        "title": "OZONE: Latest 10 Posts"
+        "title": "Gwiezdne wojny: ostanie 10 postow"
     }
 
     return render(request, "latest-posts.html", context)

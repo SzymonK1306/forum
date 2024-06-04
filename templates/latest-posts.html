@@ -4,15 +4,15 @@
     <div class="container">
         <!--Navigation-->
         <div class="navigate">
-            <span>Latest 10 Posts</span>
+            <span>10 ostatnich postów</span>
         </div>
         <!--Display posts table-->
         <div class="posts-table">
             <div class="table-head">
                 <div class="status">Status</div>
-                <div class="subjects">Subjects</div>
-                <div class="replies">Replies/Views</div>
-                <div class="last-reply">Last Reply</div>
+                <div class="subjects">Temat</div>
+                <div class="replies">Odpowiedzi/Wyświetlenia</div>
+                <div class="last-reply">Ostatnia odpowiedź</div>
             </div>
 
             {% for post in posts %}
@@ -21,15 +21,15 @@
                 <div class="subjects">
                     <a href="{{post.get_url}}">{{post.title}}</a>
                     <br>
-                    <span>Started by <b><a href="">{{post.user.fullname|title}}</a></b> .</span>
+                    <span>Rozpoczęto przez <b><a href="">{{post.user.fullname|title}}</a></b> .</span>
                 </div>
                 <div class="replies">
-                    {{post.num_comments}} comments <br> {% get_hit_count for post %} views
+                    {{post.num_comments}} komentarze <br> {% get_hit_count for post %} wyświetlenia
                 </div>
 
                 <div class="last-reply">
                     {{post.last_reply.date|date}}
-                    <br>By <b><a href="">{{post.last_reply.user.fullname|title}}</a></b>
+                    <br>Przez <b><a href="">{{post.last_reply.user.fullname|title}}</a></b>
                 </div>
             </div>
             {% endfor %}

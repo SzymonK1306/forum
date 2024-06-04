@@ -51,7 +51,7 @@ class Migration(migrations.Migration):
                 ('date', models.DateTimeField(auto_now_add=True)),
                 ('approved', models.BooleanField(default=False)),
                 ('categories', models.ManyToManyField(to='main.Category')),
-                ('tags', taggit.managers.TaggableManager(help_text='A comma-separated list of tags.', through='taggit.TaggedItem', to='taggit.Tag', verbose_name='Tags')),
+                ('tags', taggit.managers.TaggableManager(help_text='Oddziel tagi za pomocą przecinków', through='taggit.TaggedItem', to='taggit.Tag', verbose_name='Tags')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.author')),
             ],
         ),

@@ -7,13 +7,13 @@
 
 html{
     font-size: 14px;
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'News Cycle', sans-serif;
     background-color:rgb(0,0,0);
     color:#FEFEFE;
 }
 
 a{
-    color:#FF0042;
+    color:#0071de;
     font-weight: bolder;
     text-decoration: none;
 }
@@ -37,7 +37,7 @@ h1{
 }
 
 .subforum-title{
-    background-color:#292B2E;
+    background-color: #040405;
     padding: 5px;
     border-radius: 5px;
     margin:4px;
@@ -134,9 +134,9 @@ header{
     align-items: center;
 }
 .navigation{
-    background-color:#52057b;
+    background-color: #0071de;
     padding: 10px;
-    width: 65%;
+    width: 36%;
     display: inline-block;
     border-radius: 5px;
     max-height: 80px;
@@ -155,7 +155,7 @@ header{
 }
 
 .nav-item a{
-    float: right;
+    float: left;
     display:block;
     text-align: center;
     margin-inline: 20px;
@@ -185,10 +185,16 @@ header{
     src:url(aquire.otf);
 }
 
+@font-face {
+    font-family: StarJedi;
+    src: url(Starjedi.ttf);
+}
+
 .brand{
     font-size:60px;
     display: inline-block;
-    font-family:aquire;
+    font-family: StarJedi;
+    color: yellow;
 }
 
 /*Navbar for the smartphones*/
@@ -221,12 +227,12 @@ header{
 
   /* Search Box styles */
 .search-box{
-    border: solid 1px #52057b;
+    border: solid 1px #0071de;
     margin-top: 20px;
     padding: 40px;
     display:flex;
     justify-content: center;
-    box-shadow:1px 2px 3px #52057b;
+    box-shadow:1px 2px 3px #0071de;
 }
 
 .search-box select{
@@ -273,7 +279,7 @@ header{
 footer{
     margin-top: 20px;
     padding: 20px;
-    background-color:  #52057b;
+    background-color:  #0071de;
     display: block;
     text-align: center;
 }
@@ -352,7 +358,7 @@ footer{
 }
 
 .navigate a:hover{
-    color:#FF0042;
+    color:#0071de;
     font-weight: bolder;
 }
 
